@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg6xobno24ye3"]
+
+[ext_resource type="Script" path="res://black_frame.gd" id="1_b3yrn"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_b3yrn")
+
+[node name="BlackFrame" type="ColorRect" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 256.0
+offset_bottom = 94.0
+text = "Black Frame Insertion: Enabled
+BFI Strength: 50%
+BFI Frames: 1/2"

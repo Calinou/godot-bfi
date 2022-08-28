@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://boqyfthiu3sud"]
+
+[ext_resource type="Texture2D" uid="uid://dcsw7wy8tv4cc" path="res://textures/icon.png" id="1_4b3ld"]
+[ext_resource type="Texture2D" uid="uid://3uvqdb7oama7" path="res://textures/icon_outlined.png" id="2_72pjt"]
+
+[sub_resource type="Animation" id="Animation_kbfma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-152, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mvpl2"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icons:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-152, 0), Vector2(1125, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgb0j"]
+_data = {
+"RESET": SubResource("Animation_kbfma"),
+"move": SubResource("Animation_mvpl2")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icons" type="Node2D" parent="."]
+position = Vector2(-152, 0)
+
+[node name="Icon" type="Sprite2D" parent="Icons"]
+position = Vector2(88, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4b3ld")
+
+[node name="Icon2" type="Sprite2D" parent="Icons"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(88, 192)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4b3ld")
+
+[node name="Icon3" type="Sprite2D" parent="Icons"]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(88, 320)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4b3ld")
+
+[node name="Icon4" type="Sprite2D" parent="Icons"]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(88, 448)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4b3ld")
+
+[node name="IconOutlined" type="Sprite2D" parent="Icons"]
+position = Vector2(88, 576)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_72pjt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_xgb0j")
+}
